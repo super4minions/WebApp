@@ -20,8 +20,16 @@ function getlocation(callback) {
 }
 
 getlocation(function(error, data) {
-    // console.log(data)
-    var places="Jordan";
+	var p=data.YourFuckingLocation.split(",");
+
+var places= p[2]
+   places=places.trim();
+if (places=="Occupied Palestine"){
+
+	places="West Bank and Gaza"
+}
+    //var fullC=data.
+ 
     sts(places,function(error,data){
     console.log(data[0])
     
@@ -34,4 +42,4 @@ function sts(place, callback) {
     request("http://api.population.io:80/1.0/population/1980/" + place + "/", callback)
 }
 
-
+س
