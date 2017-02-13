@@ -28,6 +28,7 @@ if (places=="Occupied Palestine"){
 
 	places="West Bank and Gaza"
 }
+  
     //var fullC=data.
  
     sts(places,function(error,data){
