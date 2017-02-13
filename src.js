@@ -20,8 +20,13 @@ function getlocation(callback) {
 }
 
 getlocation(function(error, data) {
-    // console.log(data)
-    var places="Jordan";
+	var p=data.YourFuckingLocation.split(",");
+
+var places= p[2]
+   places=places.trim();
+
+    //var fullC=data.
+ 
     sts(places,function(error,data){
     console.log(data[0])
     
