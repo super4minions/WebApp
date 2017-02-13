@@ -1,0 +1,113 @@
+.header, .main, .control, .data, .graph, .map, .footer {
+  flex: 1 100%;
+}
+
+.page_layout{
+	display: flex;
+	flex-direction: row;
+}
+
+.data {
+	display: flex;
+	flex-direction: column;
+	height: calc(100vh - 70px);
+	flex-grow: 1;
+}
+
+.graph {
+	display: flex;
+	height: 200px;
+	width: 1200px;
+  justify-content: space-around;
+}
+
+.b1 {
+	background: green;
+}
+
+.ref-link {
+  text-align: center;
+  font-size: 24px;
+  padding: 50px 0;
+}
+.ref-link a {
+  color: #999;
+}
+
+.page_layout {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: row;
+  height: calc(100vh - 70px);
+}
+.layout header,
+.layout footer {
+  padding: 20px;
+  background: #666;
+  color: black;
+}
+.control {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 0.25;
+  background: pink;
+	flex-direction: column;
+}
+.layout .body .c1 {
+  background: lightblue;
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+}
+.example-layout .body .col-2 {
+  background: honeydew;
+  width: 160px;
+  -webkit-box-ordinal-group: 0;
+      -ms-flex-order: -1;
+          order: -1;
+}
+.example-layout .body .col-3 {
+  background: peachpuff;
+  width: 160px;
+}
+@media (max-width: 800px) {
+  .example-layout .body {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  .example-layout .body .col-2, .example-layout .body .col-3 {
+    width: auto;
+  }
+}
+
+.example-media .media, .example-media .search-group {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  max-width: 600px;
+}
+.example-media .media img, .example-media .search-group img {
+  margin-right: 10px;
+}
+.example-media .media .content, .example-media .search-group .content {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+}
+.example-media .media input, .example-media .search-group input {
+  padding: 10px;
+}
+.example-media .media input[type="text"], .example-media .search-group input[type="text"] {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+}
