@@ -19,28 +19,27 @@ function getlocation(callback) {
     request("https://wtfismyip.com/json", callback)
 }
 
-getlocation(function(error, data) {
-	var p=data.YourFuckingLocation.split(",");
+// getlocation(function(error, data) {
+// 	console.log(data);
+//     var p=data.YourFuckingLocation.split(",");
+//     var places= p[2]
+//        places=places.trim();
+//     if (places=="Occupied Palestine"){
 
-var places= p[2]
-   places=places.trim();
-if (places=="Occupied Palestine"){
-
-	places="West Bank and Gaza"
-}
+//     	places="West Bank and Gaza"
+//     }
   
-    //var fullC=data.
+//     //var fullC=data.
  
-    sts(places,function(error,data){
-    console.log(data[0])
+//     sts(places,function(error,data){
+//     console.log(data[0])
     
-  })
-      return data
-});
+//   })
+//       return data
+// });
 
 function sts(place, callback) {
 // console.log(c)
     request("http://api.population.io:80/1.0/population/1980/" + place + "/", callback)
 }
 
-س
