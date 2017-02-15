@@ -19,9 +19,11 @@ body {
 	  justify-content: space-around;
 }
 
-#control {
+.control {
 	display: flex;
-	background-color: black;
+	/*flex: 1 100%;*/
+	background: black;
+	height: 50px;
 }
 
 #chart {
