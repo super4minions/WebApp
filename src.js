@@ -1,4 +1,4 @@
-//The Location Funtion
+//The Request Funtion
 
 function request(url, cb) {
     var xhr = new XMLHttpRequest();
@@ -18,6 +18,7 @@ function request(url, cb) {
     xhr.send();
 }
 
+//The Location Funtion
 function getlocation(callback) {
     request("https://wtfismyip.com/json", callback)
 }
