@@ -32,7 +32,7 @@ function getlocation(callback) {
 // });
 
 getlocation(function(error, data) {
-	console.log(data);
+	//console.log(data);
     var p=data.YourFuckingLocation.split(",");
     var places= p[2]
        places=places.trim();
@@ -40,14 +40,14 @@ getlocation(function(error, data) {
 
     	places="West Bank and Gaza"
     }
-  
+
     //var fullC=data.
- 
+
     sts(places,function(error,data){
-    console.log(data[0])
-    
+    console.log(places);
+    gchart(data,places);
   })
-      gchart(data,places);
+
 });
 
 
@@ -60,7 +60,7 @@ function sts(place, callback) {
 google.charts.load('current', {'packages':['corechart']});
 
 function gchart(d,p){
-  console.log("pass data", d);
+  //console.log("pass data", d);
 // Set a callback to run when the Google Visualization API is loaded.
   google.charts.setOnLoadCallback(drawChart);
   var dc1 = [['Age','0'],['Male',0],['Female',0]];
@@ -73,7 +73,7 @@ function gchart(d,p){
     dc2[2][1]= dc2[2][1] + d[i].females;
   };
 
-  function compare(a,b) {
+  function comparem(a,b) {
     if (a.males < b.males)
       return 1;
     if (a.males > b.males)
@@ -81,20 +81,33 @@ function gchart(d,p){
     return 0;
   }
 
-  var dc3t = d.sort(compare).slice(0, 10);
-  var dc3 = [['Age','0'],['Male',0]];
+  function comparef(a,b) {
+    if (a.females < b.females)
+      return 1;
+    if (a.females > b.females)
+      return -1;
+    return 0;
+  }
+
+  var dc3t = d.sort(comparem).slice(0, 10);
+  var dc3t = d.sort(comparef).slice(0, 10);
+  var dc3m = [['Age','0'],['Male',0]];
+  var dc3f = [['Age','0'],['Female',0]];
   for (var i = 1; i < dc3t.length; i++){
-    dc3[0][i]= d[i].age.toString();
-    dc3[1][i]= d[i].males;
+    dc3m[0][i]= d[i].age.toString();
+    dc3m[1][i]= d[i].males;
+    dc3f[0][i]= d[i].age.toString();
+    dc3f[1][i]= d[i].females;
   };
 
-    console.log('d3',dc3t);
+    //console.log('d3',dc3t);
     function drawChart() {
 
       // Create the data table.
       var data = new google.visualization.arrayToDataTable(dc1);
       var data2 = new google.visualization.arrayToDataTable(dc2);
-      var data3 = new google.visualization.arrayToDataTable(dc3);
+      var data3 = new google.visualization.arrayToDataTable(dc3m);
+      var data4 = new google.visualization.arrayToDataTable(dc3f);
       // Set chart options
       var options = {'title':'Age Distribution',
                      'width':400,
@@ -112,6 +125,12 @@ function gchart(d,p){
                       textPosition: 'in',
                       hAxis: {slantedText: true}
                     };
+      var options4 = {'title':'Females Top 10 Ages',
+                     'width':400,
+                     'height':300,
+                      textPosition: 'in',
+                      hAxis: {slantedText: true}
+                    };
 
       // Instantiate and draw our chart, passing in some options.
       var chart = new google.visualization.ColumnChart(document.getElementById('chart_div'));
@@ -120,6 +139,8 @@ function gchart(d,p){
       chart2.draw(data2, options2);
       var chart3 = new google.visualization.ColumnChart(document.getElementById('chart_div3'));
       chart3.draw(data3, options3);
+      var chart4 = new google.visualization.ColumnChart(document.getElementById('chart_div4'));
+      chart4.draw(data4, options4);
 
   }
 }
