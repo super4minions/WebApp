@@ -8,7 +8,7 @@ test("Check if function getlocation exists", function(t) {
 test("Check if function getlocation returns an object", function(t) {
   var done = t.async(1);
   getlocation(function(error, data) {
-    t.equal(typeof data,"object",'is an object')
+    t.equal(typ=eof data,"object",'is an object')
     done()
   });
 });
@@ -16,18 +16,17 @@ test("Check if function getlocation returns an object", function(t) {
 test("Check if data return array", function(t) {
   var done = t.async(1);
   getlocation(function(error, data) {
-    console.log(data);
+    // console.log(data);
     var p=data.YourFuckingLocation.split(",");
-    console.log(p); 
+    // console.log(p); 
     t.deepEqual(p,["Gaza"," 00"," Occupied Palestine"],'is correct')
     done()
   });
 });
-
 test("Check if data return current location", function(t) {
   var done = t.async(1);
   getlocation(function(error, data) {
-    console.log(data);
+    // console.log(data);
     var p=data.YourFuckingLocation.split(",");
     var places= p[2]
         places=places.trim();
