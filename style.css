@@ -1,50 +1,72 @@
+body {
+  background-color: #f6f6f6;
+}
 
+#container {
+  /*height: 500px;*/
+	padding: 0;
+	  margin: 0;
+	  list-style: none;
 
-    @import 'https://fonts.googleapis.com/css?family=Muli';
+	  display: -webkit-box;
+	  display: -moz-box;
+	  display: -ms-flexbox;
+	  display: -webkit-flex;
+	  display: flex;
 
-    * {
-      box-sizing: border-box;
-    }
+	  -webkit-flex-flow: row wrap;
+		flex-direction: column;
+	  justify-content: space-around;
+}
 
-    body {
-      background-color: #f6f6f6;
-    }
+#control {
+	display: flex;
+	background-color: black;
+}
 
-    #container {
-      height: 500px;
-      display: flex;
-      justify-content: space-around;
-      flex-flow: row wrap;
-    }
+#chart {
+	display: flex;
+	flex-direction: row;
+}
 
-    #chart_div {
-      flex-basis: 250px;
-      height: 40%;
-      box-shadow: 10px 10px 5px 0 rgba(230,230,230,1);
-      margin: 10px;
-      border-radius: 5px;
-    }
+#row1 {
+	display: flex;
+	-webkit-flex-flow: row wrap;
+	justify-content: space-around;
+	margin-top: 10px;
+}
 
-    #chart_div2 {
-     flex-basis: 250px;
-     height: 40%;
-     box-shadow: 10px 10px 5px 0 rgba(230,230,230,1);
-     margin: 10px;
-     border-radius: 5px;
-    }
+#row2 {
+	display: flex;
+	-webkit-flex-flow: row wrap;
+	justify-content: space-around;
+	margin-top: 10px;
+}
 
-    #chart_div3 {
-     flex-basis: 250px;
-     height: 40%;
-     box-shadow: 10px 10px 5px 0 rgba(230,230,230,1);
-     margin: 10px;
-     border-radius: 5px;
-    }
+#chart_div {
+	display: flex;
+  height: 60%;
+  flex-basis: 250px;
+	/*margin-top: 10px;*/
+}
 
-    #chart_div4 {
-      flex-basis: 250px;
-      height: 40%;
-      box-shadow: 10px 10px 5px 0 rgba(230,230,230,1);
-      margin: 10px;
-      border-radius: 5px;
-    }
+#chart_div2 {
+	display: flex;
+  height: 60%;
+  flex-basis: 250px;
+	/*margin-top: 10px;*/
+}
+
+#chart_div3 {
+	display: flex;
+  height: 60%;
+  flex-basis: 250px;
+	/*margin-top: 10px;*/
+}
+
+#chart_div4 {
+	display: flex;
+  height: 60%;
+  flex-basis: 250px;
+	margin-top: 10px;
+}
