@@ -53,7 +53,7 @@ getlocation(function(error, data) {
 
 function sts(place, callback) {
 // console.log(c)
-    request("http://api.population.io:80/1.0/population/2016/" + place + "/", callback)
+    request("https://api.population.io:80/1.0/population/2016/" + place + "/", callback)
 }
 
 
