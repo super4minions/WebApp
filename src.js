@@ -40,7 +40,7 @@ getlocation(function(error, data) {
 
     	places="West Bank and Gaza"
     }
-    
+
     //var fullC=data.
 
     sts(places,function(error,data){
@@ -50,17 +50,13 @@ getlocation(function(error, data) {
 
 });
 
-
 function sts(place, callback) {
-// console.log(c)
     request("http://api.population.io:80/1.0/population/2016/" + place + "/", callback)
 }
-
 
 google.charts.load('current', {'packages':['corechart']});
 
 function gchart(d,p){
-  //console.log("pass data", d);
 // Set a callback to run when the Google Visualization API is loaded.
   google.charts.setOnLoadCallback(drawChart);
   var dc1 = [['Age','0'],['Male',0],['Female',0]];
