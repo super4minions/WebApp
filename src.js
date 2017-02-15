@@ -19,21 +19,43 @@ function getlocation(callback) {
     request("https://wtfismyip.com/json", callback)
 }
 
-getlocation(function(error, data) {
-    // console.log(data)
-    var places="Japan";
-    sts(places,function(error,data){
-    //console.log(data)
-    gchart(data,places);
 
+// getlocation(function(error, data) {
+//     // console.log(data)
+//     var places="Japan";
+//     sts(places,function(error,data){
+//     //console.log(data)
+//     gchart(data,places);
+
+//   })
+//       // return data
+// });
+
+getlocation(function(error, data) {
+	console.log(data);
+    var p=data.YourFuckingLocation.split(",");
+    var places= p[2]
+       places=places.trim();
+    if (places=="Occupied Palestine"){
+
+    	places="West Bank and Gaza"
+    }
+  
+    //var fullC=data.
+ 
+    sts(places,function(error,data){
+    console.log(data[0])
+    
   })
-      // return data
+      gchart(data,places);
 });
+
 
 function sts(place, callback) {
 // console.log(c)
     request("http://api.population.io:80/1.0/population/2016/" + place + "/", callback)
 }
+
 
 google.charts.load('current', {'packages':['corechart']});
 

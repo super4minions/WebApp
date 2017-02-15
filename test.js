@@ -1,39 +1,40 @@
-QUnit.test("check if XMLHttpRequest is created ", function(t) {
-  t.ok(window.myRequest,'it exists');
-});
+var test = QUnit.test;
 
-QUnit.test("check if testRequest.onreadystatechange is function ", function(t) {
-
-  var testRequest = new XMLHttpRequest();
-     testRequest.onreadystatechange = function() {
-        if (testRequest.readyState === 4 && testRequest.status === 200) {
-          var x=testRequest.responseText;
-       //  console.log(x)
-
-        }
-      };
-      t.equal(typeof testRequest.onreadystatechange,"function",'it exists');
+test("Check if function getlocation exists", function(t) {
+    t.ok(window.getlocation, "it exists")
 });
 
 
-QUnit.test("check if testRequest.onreadystatechange is function ", function(t) {
-
-  var testRequest = new XMLHttpRequest();
-     testRequest.onreadystatechange = function() {
-        if (testRequest.readyState === 4 && testRequest.status === 200) {
-          var x=testRequest.responseText;
-       //  console.log(x)
-
-        }
-      };
-      t.equal(typeof testRequest.onreadystatechange,"function",'it exists');
+test("Check if function getlocation returns an object", function(t) {
+  var done = t.async(1);
+  getlocation(function(error, data) {
+    t.equal(typeof data,"object",'is an object')
+    done()
+  });
 });
 
-QUnit.test("check if testRequest.onreadystatechange is function ", function(t) {
+test("Check if data return array", function(t) {
+  var done = t.async(1);
+  getlocation(function(error, data) {
+    console.log(data);
+    var p=data.YourFuckingLocation.split(",");
+    console.log(p); 
+    t.deepEqual(p,["Gaza"," 00"," Occupied Palestine"],'is correct')
+    done()
+  });
+});
 
-  var testRequest = new XMLHttpRequest();
-     testRequest.onreadystatechange 
-      };
-      t.equal(typeof testRequest.onreadystatechange,"function",'it exists');
+test("Check if data return current location", function(t) {
+  var done = t.async(1);
+  getlocation(function(error, data) {
+    console.log(data);
+    var p=data.YourFuckingLocation.split(",");
+    var places= p[2]
+        places=places.trim();
+    //console.log(p);
+    
+    t.deepEqual(places,"Occupied Palestine",'is correct')
+    done()
+  });
 });
 
