@@ -31,7 +31,7 @@ It's basically about integrating 3 APIs to make specific data (statistics) avail
 
 ### Writing the code.
 
-  - Tests file (test.js)
+  - **Tests file (test.js)**
   
   1. Check if function ```getlocation``` exists.
   
@@ -53,7 +53,7 @@ It's basically about integrating 3 APIs to make specific data (statistics) avail
   9. Check if function ```drawcharts``` draws chart (updates the DOM).
   
   
-  - Source file (src.js)
+  - **Source file (src.js)**
   
   ```JS
 function request(url, cb) {
@@ -70,7 +70,7 @@ function request(url, cb) {
     xhr.open("GET", url, true);
       xhr.send();
 }
-``
+```
   1. We had to use XMLHttpRequest asynchronously.  which means, we receive a callback when the data has been received and that
   lets the browser continue to work as normal while the request is being handled.
   2. Created the function ```getlocation``` and used the API "https://wtfismyip.com/json" to get users location by their IP.
