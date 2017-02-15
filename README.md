@@ -64,7 +64,6 @@ function request(url, cb) {
       xhr.send();
 }
 ```
-
   2. Created the function ```getlocation``` and used the API "https://wtfismyip.com/json" to get users location by their IP.
   3. Created the funtion ```sts``` that gets the data we want to use from the API "http://api.population.io:80/1.0/countries".
   4. Created the funtion ```gchart``` that uses Google Visualization as its API,
