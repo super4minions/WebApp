@@ -19,13 +19,15 @@ As a client looking for data webapp.
 
   - Sketching.
   - Writing the code (TDD approach).
-  - Fetching the HTML and style sheet.
+  - Fetching the index and style sheet files.
   - Uploading to *github* pages.
+  
 ### Sketching the idea.
-Basically, integrating 3 APIs to make specific data (statistics) available in the form of charts based on the user's location.
 
-![alt](https://s15.postimg.org/8cq7p8xqz/Sk1.jpg)
-![alt](https://s13.postimg.org/ld0uklpev/Sk2.jpg)
+It's basically about integrating 3 APIs to make specific data (statistics) available in the form of charts based on the user's location.
+
+![alt](https://s27.postimg.org/mvow9umn7/Sk1.jpg)
+![alt](https://s8.postimg.org/6pp6kiz05/Sk2.jpg)
 
 ### Writing the code.
 
@@ -63,7 +65,7 @@ function request(url, cb) {
 }
 ```
 
-  2. Created the function ```getlocation``` and used the API/ "https://wtfismyip.com/json" to get users location by their IP.
-  3. Created the funtion ```sts``` that gets the data we want to use from the API/ "http://api.population.io:80/1.0/countries".
+  2. Created the function ```getlocation``` and used the API "https://wtfismyip.com/json" to get users location by their IP.
+  3. Created the funtion ```sts``` that gets the data we want to use from the API "http://api.population.io:80/1.0/countries".
   4. Created the funtion ```gchart``` that uses Google Visualization as its API,
   the function also includes two other functions ```comparef``` and ```drawchart```.
