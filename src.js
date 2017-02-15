@@ -40,7 +40,7 @@ getlocation(function(error, data) {
 
     	places="West Bank and Gaza"
     }
-
+    
     //var fullC=data.
 
     sts(places,function(error,data){
