@@ -34,22 +34,28 @@ It's basically about integrating 3 APIs to make specific data (statistics) avail
   - Tests file (test.js)
   
   1. Check if function ```getlocation``` exists.
+  
   2. check if ```getlocation``` returns data.
+  
   3. Make sure that ```getlocation``` returns country as output.
+  
   4. Check if funtion ```country``` returns countries and touches the DOM
   to make the countries option available.
+  
   5. Check if funtion ```sts``` takes current location as input.
+  
   6. Check if ```sts``` returns data.
+  
   7. Check if function ```gcharts``` takes stats.
+  
   8. Check if function ```drawcharts``` is working (fetches stats tables).
+  
   9. Check if function ```drawcharts``` draws chart (updates the DOM).
   
   
   - Source file (src.js)
   
-  1. We had to use XMLHttpRequest asynchronously.  which means, we receive a callback when the data has been received and that     lets the browser continue to work as normal while the request is being handled.
-  
-```JS
+  ```JS
 function request(url, cb) {
     var xhr = new XMLHttpRequest();
     xhr.onreadystatechange = function() {
@@ -64,8 +70,9 @@ function request(url, cb) {
     xhr.open("GET", url, true);
       xhr.send();
 }
-```
-
+``
+  1. We had to use XMLHttpRequest asynchronously.  which means, we receive a callback when the data has been received and that
+  lets the browser continue to work as normal while the request is being handled.
   2. Created the function ```getlocation``` and used the API "https://wtfismyip.com/json" to get users location by their IP.
   3. Created the funtion ```sts``` that gets the data we want to use from the API "http://api.population.io:80/1.0/countries".
   4. Created the funtion ```gchart``` that uses Google Visualization as its API,
