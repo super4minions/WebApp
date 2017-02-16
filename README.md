@@ -27,7 +27,7 @@ As a client looking for data webapp.
 It's basically about integrating 3 APIs to make specific data (statistics) available in the form of charts based on the user's location.
 
 ![alt](https://s13.postimg.org/4f8yhpnef/Sk1.jpg)
-![alt](https://s8.postimg.org/6pp6kiz05/Sk2.jpg)
+![alt](https://s4.postimg.org/f2fldvxwd/Sk2.jpg)
 
 ### Writing the code.
 
