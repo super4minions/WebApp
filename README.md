@@ -3,10 +3,9 @@
 *A web application built by the Super4minions as a project for the 3rd week of the GSG full time coding bootcamp.*
 https://super4minions.github.io/WebApp/
 
-*After running the website make sure to disable protection*
-*on your browser* 
-If you are using *Firefox* click on the LOCK symbol on the  left side of your window ![alt](https://s1.postimg.org/xdhxzl0nz/firefox.jpg)
-If you are using *Chrome* click on the protection symbol on the  right side of your window ![alt](https://s23.postimg.org/4vxgzsb9n/chrome.jpg)
+After running the website make sure to disable protection on your browser.
+>If you are using *Firefox* click on the LOCK symbol on the  left side of your window ![alt](https://s1.postimg.org/xdhxzl0nz/firefox.jpg)
+>If you are using *Chrome* click on the protection symbol on the  right side of your window ![alt](https://s23.postimg.org/4vxgzsb9n/chrome.jpg)
 
 ## User stories.
   As a client looking for data webapp.
