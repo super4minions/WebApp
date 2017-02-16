@@ -41,9 +41,16 @@ var select = document.getElementById("myList");
 
 getlocation(function(error, data) {
 
+
+var places=data.YourFuckingLocation;
+
+if(data.YourFuckingLocation.indexOf(",")>-1){
     var p = data.YourFuckingLocation.split(",");
     var places = p[2]
-    places = places.trim();
+        places = places.trim();
+    }
+
+
     if (places == "Occupied Palestine") {
         places = "West Bank and Gaza"
     }
