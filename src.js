@@ -128,7 +128,7 @@ function gchart(d, p) {
 
     //console.log('d3',dc3t);
     function drawChart() {
-        console.log(dc1)
+//         console.log(dc1)
         // Create the data table.
         var data = new google.visualization.arrayToDataTable(dc1);
         var data2 = new google.visualization.arrayToDataTable(dc2);
