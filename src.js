@@ -30,6 +30,7 @@ function country(callback) {
 
 country(function(error, data) {
     var select = document.getElementById("myList")
+    data.countries.sort();
     data.countries.forEach(function(ele) {
         opt = document.createElement("option");
         opt.textContent = ele;
@@ -54,25 +55,22 @@ if(data.YourFuckingLocation.indexOf(",")>-1){
     if (places == "Occupied Palestine") {
         places = "West Bank and Gaza"
     }
-
     select.value = places;
-
+    //console.log("places", places);
     sts(places, function(error, data) {
         gchart(data, places)
     });
 });
 
-
 select.addEventListener('change',  function(){
    sts(select.value, function(error, data) {
         gchart(data, select.value)
-    }); 
+    });
 });
 
 function sts(place, callback) {
     request("http://api.population.io:80/1.0/population/2016/" + place + "/", callback)
 }
-
 
 google.charts.load('current', { 'packages': ['corechart'] });
 
@@ -99,23 +97,15 @@ function gchart(d, p) {
     };
 
     function comparem(a, b) {
-        if (a.males < b.males)
-            return 1;
-        if (a.males > b.males)
-            return -1;
-        return 0;
+        return (b.males - a.males)
     }
 
     function comparef(a, b) {
-        if (a.females < b.females)
-            return 1;
-        if (a.females > b.females)
-            return -1;
-        return 0;
+        return (b.females - a.females)
     }
 
-    var dc3t = d.sort(comparem).slice(0, 10);
-    var dc3t = d.sort(comparef).slice(0, 10);
+    var dc3t1 = d.sort(comparem).slice(0, 10);
+    var dc3t2 = d.sort(comparef).slice(0, 10);
     var dc3m = [
         ['Age', '0'],
         ['Male', 0]
@@ -124,18 +114,18 @@ function gchart(d, p) {
         ['Age', '0'],
         ['Female', 0]
     ];
-    for (var i = 1; i < dc3t.length; i++) {
-        dc3m[0][i] = d[i].age.toString();
-        dc3m[1][i] = d[i].males;
-        dc3f[0][i] = d[i].age.toString();
-        dc3f[1][i] = d[i].females;
+
+    for (var i = 1; i < dc3t1.length; i++) {
+        dc3m[0][i] = dc3t1[i].age.toString();
+        dc3m[1][i] = dc3t1[i].males;
+        dc3f[0][i] = dc3t2[i].age.toString();
+        dc3f[1][i] = dc3t2[i].females;
     };
 
     google.charts.setOnLoadCallback(drawChart);
 
-    //console.log('d3',dc3t);
     function drawChart() {
-//         console.log(dc1)
+      
         // Create the data table.
         var data = new google.visualization.arrayToDataTable(dc1);
         var data2 = new google.visualization.arrayToDataTable(dc2);
@@ -171,7 +161,6 @@ function gchart(d, p) {
 
         // Instantiate and draw our chart, passing in some options.
         var chart = new google.visualization.ColumnChart(document.getElementById('chart_div'));
-        
         chart.draw(data, options);
         var chart2 = new google.visualization.PieChart(document.getElementById('chart_div2'));
         chart2.draw(data2, options2);
