@@ -8,7 +8,7 @@ test("Check if function getlocation exists", function(t) {
 test("Check if function getlocation returns an object", function(t) {
   var done = t.async(1);
   getlocation(function(error, data) {
-    t.equal(typ=eof data,"object",'is an object')
+    t.equal(typeof data,"object",'is an object')
     done()
   });
 });

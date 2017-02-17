@@ -1,4 +1,4 @@
-//The Location Funtion
+//The Request Funtion
 
 function request(url, cb) {
     var xhr = new XMLHttpRequest();
@@ -18,6 +18,7 @@ function request(url, cb) {
     xhr.send();
 }
 
+//The Location Funtion
 function getlocation(callback) {
     request("https://wtfismyip.com/json", callback)
 }
@@ -29,6 +30,7 @@ function country(callback) {
 
 country(function(error, data) {
     var select = document.getElementById("myList")
+    data.countries.sort();
     data.countries.forEach(function(ele) {
         opt = document.createElement("option");
         opt.textContent = ele;
@@ -40,9 +42,16 @@ var select = document.getElementById("myList");
 
 getlocation(function(error, data) {
 
+
+var places=data.YourFuckingLocation;
+
+if(data.YourFuckingLocation.indexOf(",")>-1){
     var p = data.YourFuckingLocation.split(",");
     var places = p[2]
-    places = places.trim();
+        places = places.trim();
+    }
+
+
     if (places == "Occupied Palestine") {
         places = "West Bank and Gaza"
     }
@@ -116,6 +125,7 @@ function gchart(d, p) {
     google.charts.setOnLoadCallback(drawChart);
 
     function drawChart() {
+      
         // Create the data table.
         var data = new google.visualization.arrayToDataTable(dc1);
         var data2 = new google.visualization.arrayToDataTable(dc2);
@@ -151,7 +161,6 @@ function gchart(d, p) {
 
         // Instantiate and draw our chart, passing in some options.
         var chart = new google.visualization.ColumnChart(document.getElementById('chart_div'));
-
         chart.draw(data, options);
         var chart2 = new google.visualization.PieChart(document.getElementById('chart_div2'));
         chart2.draw(data2, options2);
